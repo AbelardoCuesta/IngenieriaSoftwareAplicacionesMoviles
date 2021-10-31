@@ -1,0 +1,89 @@
+# Archivos de aplicación creados
+* .apk
+* .aar
+* .ap_
+* .aab
+
+# Archivos para ART / Dalvik VM
+* .dex
+
+# Archivos de clase Java
+*.clase
+
+# Archivos generados
+compartimiento/
+gen /
+fuera/
+# Descomente la siguiente línea en caso de que lo necesite y no tenga los archivos de tipo de compilación de lanzamiento en su aplicación
+# liberación/
+
+# Archivos Gradle
+.gradle /
+construir/
+
+# Archivo de configuración local (ruta sdk, etc.)
+propiedades.locales
+
+# Carpeta Proguard generada por Eclipse
+proguard /
+
+# Archivos de registro
+*.Iniciar sesión
+
+# Archivos temporales del editor de navegación de Android Studio
+.navegación/
+
+# Carpeta de capturas de Android Studio
+capturas /
+
+# IntelliJ
+* .iml
+.idea / workspace.xml
+.idea / tasks.xml
+.idea / gradle.xml
+.idea / assetWizardSettings.xml
+.idea / diccionarios
+.idea / bibliotecas
+.idea / jarRepositories.xml
+# Android Studio 3 en archivo .gitignore.
+.idea / cachés
+.idea / modules.xml
+# Comente la siguiente línea si mantener la posición de los elementos en el Editor de navegación es relevante para usted
+.idea / navEditor.xml
+
+# Archivos de almacén de claves
+# Descomente las siguientes líneas si no desea verificar los archivos del almacén de claves en formato.
+# *. jks
+# *. almacén de claves
+
+# Carpeta de compilación nativa externa generada en Android Studio 2.2 y posterior
+.externalNativeBuild
+.cxx /
+
+# Servicios de Google (por ejemplo, API o Firebase)
+# google-services.json
+
+# Línea libre
+freeline.py
+Línea libre/
+freeline_project_description.json
+
+# carril rápido
+fastlane / report.xml
+fastlane / Preview.html
+Fastlane / capturas de pantalla
+fastlane / salida_prueba
+fastlane / readme.md
+
+# Control de versiones
+vcs.xml
+
+# pelusa
+pelusa / intermedios /
+pelusa / generado /
+pelusa / salidas /
+pelusa / tmp /
+# pelusa / informes /
+
+# Perfiles de Android
+* .hprof
