@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilosmobile.R
 import com.example.vinilosmobile.databinding.MusicianItemBinding
 import com.example.vinilosmobile.models.Musician
+import com.squareup.picasso.Picasso
 
 class MusiciansAdapter: RecyclerView.Adapter<MusiciansAdapter.MusicianViewHolder>() {
 
@@ -29,6 +30,11 @@ class MusiciansAdapter: RecyclerView.Adapter<MusiciansAdapter.MusicianViewHolder
     override fun onBindViewHolder(holder: MusiciansAdapter.MusicianViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.musician = musicians[position]
+            Picasso.get()
+                .load(it.musician?.image)
+                .placeholder(R.drawable.ic_menu_camera)
+                .error(R.drawable.ic_menu_camera)
+                .into(it.avatar);
         }
         /*holder.viewDataBinding.root.setOnClickListener {
             val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
