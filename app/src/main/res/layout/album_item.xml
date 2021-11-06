@@ -27,24 +27,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/ic_launcher_background"
                 android:contentDescription="Avatar" />
 
-            <TextView
-                android:id="@+id/avatar_text"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="sans-serif"
-                android:gravity="center_vertical|center_horizontal"
-                android:maxLines="1"
-                android:text="AV"
-                android:textColor="@color/color1"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
