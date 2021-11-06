@@ -13,6 +13,6 @@ Este es el repositorio para el curso de Ingeniería de software para aplicacione
 
 #### Pasos para ejecutar las pruebas
 
-1. En el poryecto en Android Studio, ubicar el paquete:
+1. En el proyecto en Android Studio, ubicar el paquete:
   `com.example.vinilosmobile(androidTes)`
 2. dar click secundario en el archivo `AlbumesTest` o `MusiciansTest` y seleccionar la opcion `Run`
