@@ -51,6 +51,7 @@ capturas/
 # Comente la siguiente línea si mantener la posición de los elementos en el Editor de navegación es relevante para usted
 .idea/navEditor.xml
 .idea/libraries/
+.idea/
 
 # Archivos de almacén de claves
 # Descomente las siguientes líneas si no desea verificar los archivos del almacén de claves en formato.
@@ -88,4 +89,6 @@ pelusa/tmp/
 
 # Perfiles de Android
 * .hprof
+
+.gradle/
 local.properties
