@@ -14,7 +14,6 @@ import com.example.vinilosmobile.models.Collector
 import com.example.vinilosmobile.models.Musician
 import org.json.JSONArray
 import org.json.JSONObject
-import java.util.stream.Collector
 
 
 class NetworkServiceAdapter constructor(context: Context) {
