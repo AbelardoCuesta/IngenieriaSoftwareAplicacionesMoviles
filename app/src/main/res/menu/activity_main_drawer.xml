@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -9,12 +10,17 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_albums"
+            android:icon="@drawable/ic_menu_album"
+            android:title="@string/menu_albums" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_collectors"
+            android:icon="@drawable/ic_menu_album"
+            android:title="@string/menu_collectors"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_musicians"
+            android:icon="@drawable/ic_menu_musician"
+            android:title="@string/menu_musicians" />
     </group>
 </menu>

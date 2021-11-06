@@ -1,17 +1,17 @@
-package com.example.vinilosmobile.ui.album
-
+package com.example.vinilosmobile.ui.musician
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.vinilosmobile.models.Album
-import com.example.vinilosmobile.repositories.AlbumRepository
+import com.example.vinilosmobile.models.Musician
+import com.example.vinilosmobile.repositories.MusicianRepository
 
-class AlbumViewModel(application: Application) :  AndroidViewModel(application) {
-    private val albumsRepository = AlbumRepository(application)
-    private val _albums = MutableLiveData<List<Album>>()
+class MusicianViewModel(application: Application) : AndroidViewModel(application) {
 
-    val albums: LiveData<List<Album>>
-        get() = _albums
+    private val musiciansRepository = MusicianRepository(application)
+    private val _musicians = MutableLiveData<List<Musician>>()
+
+    val musicians: LiveData<List<Musician>>
+        get() = _musicians
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -28,8 +28,8 @@ class AlbumViewModel(application: Application) :  AndroidViewModel(application) 
     }
 
     private fun refreshDataFromNetwork() {
-        albumsRepository.refreshData({
-            _albums.postValue(it)
+        musiciansRepository.refreshData({
+            _musicians.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
         },{
@@ -43,9 +43,9 @@ class AlbumViewModel(application: Application) :  AndroidViewModel(application) 
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(AlbumViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(MusicianViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return AlbumViewModel(app) as T
+                return MusicianViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
