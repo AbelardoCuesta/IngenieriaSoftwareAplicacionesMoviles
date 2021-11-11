@@ -139,7 +139,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                     genre = resp.getString("genre"),
                     description = resp.getString("description")
                 )
-                Log.d("tagb", response)
+                Log.d("tagb", album.toString())
 
 
                 onComplete(album)

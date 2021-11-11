@@ -89,7 +89,7 @@
                         android:singleLine="true"
                         android:textColor="@color/color3"
                         android:textSize="14sp"
-                        tools:text="This is the third line" />
+                        tools:text="@{album.releaseDate}" />
                 </LinearLayout>
 
             </LinearLayout>

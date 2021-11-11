@@ -13,7 +13,6 @@ import androidx.navigation.fragment.navArgs
 import com.example.vinilosmobile.R
 import com.example.vinilosmobile.databinding.AlbumDetailFragmentBinding
 import com.example.vinilosmobile.models.Album
-import org.w3c.dom.Comment
 
 class AlbumDetailFragment : Fragment() {
     companion object {
@@ -42,8 +41,8 @@ class AlbumDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = AlbumDetailFragmentBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        _binding!!.lifecycleOwner = this
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -57,7 +56,7 @@ class AlbumDetailFragment : Fragment() {
         viewModel = ViewModelProvider(this, AlbumDetailViewModel.Factory(activity.application, args.albumId)).get(AlbumDetailViewModel::class.java)
         viewModel.album.observe(viewLifecycleOwner, Observer<Album> {
             it.apply {
-                this
+                binding.album = this
             }
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
