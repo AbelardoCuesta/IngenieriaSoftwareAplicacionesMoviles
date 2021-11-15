@@ -23,7 +23,7 @@
         android:label="@string/menu_musicians"
         tools:layout="@layout/fragment_musician" />
     <fragment
-        android:id="@+id/nav_collector"
+        android:id="@+id/nav_collectors"
         android:name="com.example.vinilosmobile.ui.collector.CollectorFragment"
         android:label="@string/menu_collectors"
         tools:layout="@layout/fragment_collector" />
