@@ -16,6 +16,4 @@ class CollectorRepository(val application: Application) {
             onError
         )
     }
-
-
 }
