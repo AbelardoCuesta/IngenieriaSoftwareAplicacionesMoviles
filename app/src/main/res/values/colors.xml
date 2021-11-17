@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="stroke_color">#95EDED</color>
+    <!--color name="stroke_color">#95EDED</color-->
     <color name="blue_gray">#263445</color>
     <color name="color1">#3C526C</color>
     <color name="color2">#3C526C</color>
