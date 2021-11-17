@@ -150,7 +150,29 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
 
     }
+    fun getMusician(musicianId: Int,  onComplete:(resp:Musician)->Unit , onError: (error:VolleyError)->Unit){
+        requestQueue.add(getRequest("musicians/$musicianId",
 
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                val musician=Musician(
+                    musicianId = resp.getInt("id"),
+                    name = resp.getString("name"),
+                    image = resp.getString("image"),
+                    description = resp.getString("description"),
+                    birthDate = resp.getString("birthDate")
+                )
+                Log.d("Detalle del musico", musician.toString())
+
+
+                onComplete(musician)
+
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+
+    }
 
     private fun getRequest(
         path: String,

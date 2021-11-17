@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilosmobile.R
 import com.example.vinilosmobile.databinding.MusicianItemBinding
 import com.example.vinilosmobile.models.Musician
+import com.example.vinilosmobile.ui.musician.MusicianFragmentDirections
 import com.squareup.picasso.Picasso
 
 class MusiciansAdapter: RecyclerView.Adapter<MusiciansAdapter.MusicianViewHolder>() {
@@ -36,12 +38,11 @@ class MusiciansAdapter: RecyclerView.Adapter<MusiciansAdapter.MusicianViewHolder
                 .error(R.drawable.ic_menu_camera)
                 .into(it.avatar);
         }
-        /*holder.viewDataBinding.root.setOnClickListener {
-            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = MusicianFragmentDirections.actionNavMusiciansToNavDetailMusician(musicians[position].musicianId)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
-        }*/
-    }
+        }    }
 
     override fun getItemCount(): Int {
         return musicians.size

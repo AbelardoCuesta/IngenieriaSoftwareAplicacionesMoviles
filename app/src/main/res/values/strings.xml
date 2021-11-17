@@ -12,6 +12,8 @@
     <string name="menu_collectors">Coleccionistas</string>
     <string name="menu_musicians">Músicos</string>
     <string name="menu_album_detail">Detalles del album</string>
+    <string name="menu_musician_detail">Detalles del músico</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
