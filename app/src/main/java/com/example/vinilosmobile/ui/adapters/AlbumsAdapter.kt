@@ -54,6 +54,7 @@ class AlbumsAdapter:RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.album_item
+
         }
     }
 }

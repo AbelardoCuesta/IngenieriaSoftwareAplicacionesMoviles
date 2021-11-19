@@ -2,8 +2,8 @@
     <string name="app_name">VinilosMobile</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Vinilos</string>
+    <string name="nav_header_subtitle">Vinilos Mobile</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -35,5 +35,12 @@
     <string name="title_comments">Comentarios del álbum</string>
     <string name="title_musicians">Músicos</string>
     <string name="avatar_musician">Avatar</string>
+
+    <string name="genero">Genero : </string>
+    <string name="releaseDate">Fecha lanzamiento : </string>
+    <string name="recordLabel">Compañia discografica : </string>
+    <string name="birthDate">Fecha nacimiento : </string>
+
+
 
 </resources>
