@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilosmobile.R
 import com.example.vinilosmobile.databinding.FragmentMusicianBinding
-import com.example.vinilosmobile.models.Album
 import com.example.vinilosmobile.models.Musician
 import com.example.vinilosmobile.ui.adapters.MusiciansAdapter
-import com.example.vinilosmobile.ui.album.AlbumViewModel
 
 class MusicianFragment : Fragment() {
 
