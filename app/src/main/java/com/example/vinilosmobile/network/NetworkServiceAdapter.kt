@@ -133,6 +133,7 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.Listener<String> { response ->
                 val resp = JSONObject(response)
                 val birthDate = resp.getString("birthDate").split("T").toTypedArray()
+
                 val musician=Musician(
                     musicianId = resp.getInt("id"),
                     name = resp.getString("name"),
