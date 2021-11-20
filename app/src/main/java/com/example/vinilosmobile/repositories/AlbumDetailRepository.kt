@@ -14,14 +14,9 @@ class AlbumDetailRepository(val application: Application) {
     suspend fun refreshData(albumId: Int): Album? {
         var album = getAlbumDetail(albumId)
         return if (album == null) {
-            val cm =application.baseContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            if (cm.activeNetworkInfo?.type != ConnectivityManager.TYPE_WIFI && cm.activeNetworkInfo?.type != ConnectivityManager.TYPE_MOBILE) {
-                null
-            } else {
-                album = NetworkServiceAdapter.getInstance(application).getAlbum(albumId)
-                addAlbumDetail(albumId, album)
-                album
-            }
+            album = NetworkServiceAdapter.getInstance(application).getAlbum(albumId)
+            addAlbumDetail(albumId, album)
+            album
         } else {
             album
         }
