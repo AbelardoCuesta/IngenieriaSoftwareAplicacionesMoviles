@@ -106,12 +106,14 @@ class NetworkServiceAdapter constructor(context: Context) {
         requestQueue.add(getRequest("albums/$albumId",
             Response.Listener<String> { response ->
                 val resp = JSONObject(response)
+                val releaseDate = resp.getString("releaseDate").split("T").toTypedArray()
+
                 val album=Album(
                     albumId = resp.getInt("id"),
                     name = resp.getString("name"),
                     cover = resp.getString("cover"),
                     recordLabel = resp.getString("recordLabel"),
-                    releaseDate = resp.getString("releaseDate"),
+                    releaseDate = releaseDate[0],
                     genre = resp.getString("genre"),
                     description = resp.getString("description")
                 )
@@ -130,12 +132,14 @@ class NetworkServiceAdapter constructor(context: Context) {
 
             Response.Listener<String> { response ->
                 val resp = JSONObject(response)
+                val birthDate = resp.getString("birthDate").split("T").toTypedArray()
+
                 val musician=Musician(
                     musicianId = resp.getInt("id"),
                     name = resp.getString("name"),
                     image = resp.getString("image"),
                     description = resp.getString("description"),
-                    birthDate = resp.getString("birthDate")
+                    birthDate = birthDate[0]
                 )
                 Log.d("Detalle del musico", musician.toString())
 
