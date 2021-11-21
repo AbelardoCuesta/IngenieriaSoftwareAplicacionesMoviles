@@ -3,10 +3,13 @@ package com.example.vinilosmobile
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -16,20 +19,21 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
+import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class PruebaClase {
+class DetalleMusicoTest {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun pruebaClase() {
+    fun detalleMusicoTest() {
         val appCompatImageButton = onView(
             allOf(
                 withContentDescription("Open navigation drawer"),
@@ -50,7 +54,7 @@ class PruebaClase {
 
         val navigationMenuItemView = onView(
             allOf(
-                withId(R.id.nav_albums),
+                withId(R.id.nav_musicians),
                 childAtPosition(
                     allOf(
                         withId(R.id.design_navigation_view),
@@ -59,13 +63,34 @@ class PruebaClase {
                             0
                         )
                     ),
-                    2
+                    4
                 ),
                 isDisplayed()
             )
         )
         navigationMenuItemView.perform(click())
         onView(isRoot()).perform(waitFor(5000))
+
+        val recyclerView = onView(
+            allOf(
+                withId(R.id.musicianRv),
+                childAtPosition(
+                    withClassName(`is`("android.widget.FrameLayout")),
+                    2
+                )
+            )
+        )
+        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
+        onView(isRoot()).perform(waitFor(5000))
+
+        val textView = onView(
+            allOf(
+                withId(R.id.first_line), withText("Rubén Blades Bellido de Luna"),
+                withParent(withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout::class.java))),
+                isDisplayed()
+            )
+        )
+        textView.check(matches(withText("Rubén Blades Bellido de Luna")))
     }
 
     private fun childAtPosition(

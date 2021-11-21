@@ -24,14 +24,14 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class MusiciansTest {
+class ColeccionistasTest {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun musiciansTest() {
+    fun coleccionistasTest() {
         val appCompatImageButton = onView(
             allOf(
                 withContentDescription("Open navigation drawer"),
@@ -52,7 +52,7 @@ class MusiciansTest {
 
         val navigationMenuItemView = onView(
             allOf(
-                withId(R.id.nav_musicians),
+                withId(R.id.nav_collectors),
                 childAtPosition(
                     allOf(
                         withId(R.id.design_navigation_view),
@@ -61,7 +61,7 @@ class MusiciansTest {
                             0
                         )
                     ),
-                    4
+                    3
                 ),
                 isDisplayed()
             )
@@ -71,12 +71,12 @@ class MusiciansTest {
 
         val textView = onView(
             allOf(
-                withId(R.id.first_line), withText("Chayanne"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout::class.java))),
+                withId(R.id.textView2), withText("Manolo Bellon"),
+                withParent(withParent(IsInstanceOf.instanceOf(android.widget.RelativeLayout::class.java))),
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Chayanne")))
+        textView.check(matches(withText("Manolo Bellon")))
     }
 
     private fun childAtPosition(
@@ -96,6 +96,7 @@ class MusiciansTest {
             }
         }
     }
+
     fun waitFor(delay: Long): ViewAction? {
         return object : ViewAction {
             override fun getConstraints(): Matcher<View> = isRoot()
