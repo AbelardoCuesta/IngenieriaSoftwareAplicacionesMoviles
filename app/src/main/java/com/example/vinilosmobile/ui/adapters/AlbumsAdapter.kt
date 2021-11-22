@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilosmobile.R
 import com.example.vinilosmobile.databinding.AlbumItemBinding
 import com.example.vinilosmobile.models.Album
+import com.example.vinilosmobile.ui.album.AlbumFragmentDirections
 import com.squareup.picasso.Picasso
 
 class AlbumsAdapter:RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
@@ -35,11 +37,11 @@ class AlbumsAdapter:RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
                 .error(R.drawable.ic_menu_camera)
                 .into(it.avatar);
         }
-        /*holder.viewDataBinding.root.setOnClickListener {
-            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = AlbumFragmentDirections.actionNavAlbumsToNavDetailAlbum(albums[position].albumId)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
-        }*/
+        }
     }
 
     override fun getItemCount(): Int {
@@ -52,6 +54,7 @@ class AlbumsAdapter:RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.album_item
+
         }
     }
 }

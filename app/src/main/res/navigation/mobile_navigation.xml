@@ -15,16 +15,49 @@
         android:id="@+id/nav_albums"
         android:name="com.example.vinilosmobile.ui.album.AlbumFragment"
         android:label="@string/menu_albums"
-        tools:layout="@layout/fragment_album" />
+        tools:layout="@layout/fragment_album" >
+        <action
+            android:id="@+id/action_nav_albums_to_nav_detail_album"
+            app:destination="@id/nav_detail_album" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_musicians"
         android:name="com.example.vinilosmobile.ui.musician.MusicianFragment"
         android:label="@string/menu_musicians"
-        tools:layout="@layout/fragment_musician" />
+        tools:layout="@layout/fragment_musician" >
+        <action
+            android:id="@+id/action_nav_musicians_to_nav_detail_musician"
+            app:destination="@id/nav_detail_musician" />
+    </fragment>
+
     <fragment
-        android:id="@+id/nav_collector"
+        android:id="@+id/nav_collectors"
         android:name="com.example.vinilosmobile.ui.collector.CollectorFragment"
         android:label="@string/menu_collectors"
         tools:layout="@layout/fragment_collector" />
+
+    <fragment
+        android:id="@+id/nav_detail_album"
+        android:name="com.example.vinilosmobile.ui.album.AlbumDetailFragment"
+        android:label="@string/menu_album_detail"
+        tools:layout="@layout/album_detail_fragment"
+        >
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_detail_musician"
+        android:name="com.example.vinilosmobile.ui.musician.MusicianDetailFragment"
+        android:label="@string/menu_musician_detail"
+        tools:layout="@layout/musician_detail_fragment"
+        >
+        <argument
+            android:name="musicianId"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>

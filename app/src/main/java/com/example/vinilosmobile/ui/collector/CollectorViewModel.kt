@@ -1,9 +1,13 @@
 package com.example.vinilosmobile.ui.collector
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.vinilosmobile.models.Collector
 import com.example.vinilosmobile.repositories.CollectorRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CollectorViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -28,13 +32,19 @@ class CollectorViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     private fun refreshDataFromNetwork() {
-        collectorsRepository.refreshData({
-            _collectors.postValue(it)
-            _eventNetworkError.value = false
-            _isNetworkErrorShown.value = false
-        }, {
+        try {
+            viewModelScope.launch (Dispatchers.Default){
+                withContext(Dispatchers.IO){
+                    var data = collectorsRepository.refreshData()
+                    _collectors.postValue(data)
+                }
+                _eventNetworkError.postValue(false)
+                _isNetworkErrorShown.postValue(false)
+            }
+        }
+        catch (e:Exception){
             _eventNetworkError.value = true
-        })
+        }
     }
 
     fun onNetworkErrorShown() {
@@ -42,7 +52,7 @@ class CollectorViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(CollectorViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return CollectorViewModel(app) as T

@@ -7,7 +7,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_inicio"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_albums"
@@ -15,9 +15,8 @@
             android:title="@string/menu_albums" />
         <item
             android:id="@+id/nav_collectors"
-            android:icon="@drawable/ic_menu_album"
-            android:title="@string/menu_collectors"
-            android:visible="false"/>
+            android:icon="@drawable/ic_menu_collector"
+            android:title="@string/menu_collectors"/>
         <item
             android:id="@+id/nav_musicians"
             android:icon="@drawable/ic_menu_musician"
