@@ -15,4 +15,4 @@ Este es el repositorio para el curso de Ingeniería de software para aplicacione
 
 1. En el proyecto en Android Studio, ubicar el paquete:
   `com.example.vinilosmobile(androidTes)`
-2. dar click secundario en el archivo `AlbumesTest` o `MusiciansTest` y seleccionar la opcion `Run`
+2. dar click secundario en el archivo, Por ejemplo: En el archivo `AlbumesTest` o `MusiciansTest` y seleccionar la opcion `Run`
