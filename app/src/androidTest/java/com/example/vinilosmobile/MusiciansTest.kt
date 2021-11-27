@@ -49,6 +49,7 @@ class MusiciansTest {
             )
         )
         appCompatImageButton.perform(click())
+        onView(isRoot()).perform(waitFor(5000))
 
         val navigationMenuItemView = onView(
             allOf(
@@ -71,8 +72,10 @@ class MusiciansTest {
 
         val textView = onView(
             allOf(
-                withId(R.id.first_line), withText("Chayanne"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout::class.java))),
+                withId(R.id.first_line),
+                withText("Chayanne"),
+                withContentDescription("Músico Chayanne"),
+                withParent(withParent(IsInstanceOf.instanceOf(android.widget.RelativeLayout::class.java))),
                 isDisplayed()
             )
         )
