@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vinilosmobile.R
 import com.example.vinilosmobile.databinding.AlbumDetailFragmentBinding
@@ -45,6 +46,9 @@ class AlbumDetailFragment : Fragment() {
     ): View? {
         _binding = AlbumDetailFragmentBinding.inflate(inflater, container, false)
         _binding!!.lifecycleOwner = this
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.nav_create_track)
+        }
         return binding.root
     }
 
@@ -55,7 +59,7 @@ class AlbumDetailFragment : Fragment() {
         }
         activity.actionBar?.title = getString(R.string.title_comments)
         val args: AlbumDetailFragmentArgs by navArgs()
-        Log.d("Args", args.albumId.toString())
+
         viewModel = ViewModelProvider(this, AlbumDetailViewModel.Factory(activity.application, args.albumId)).get(AlbumDetailViewModel::class.java)
         viewModel.album.observe(viewLifecycleOwner, Observer<Album> {
             it.apply {

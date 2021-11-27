@@ -37,5 +37,8 @@
     <string name="labelMusic">Músico </string>
     <string name="labelCollector">Coleccionistas </string>
 
+    <string name="btn_create_track">Crear track</string>
+    <string name="label_Track">Nuevo track</string>
+
 
 </resources>
