@@ -35,7 +35,11 @@
         android:id="@+id/nav_collectors"
         android:name="com.example.vinilosmobile.ui.collector.CollectorFragment"
         android:label="@string/menu_collectors"
-        tools:layout="@layout/fragment_collector" />
+        tools:layout="@layout/fragment_collector" >
+        <action
+            android:id="@+id/action_nav_collectors_to_nav_detail_collector"
+            app:destination="@id/nav_detail_collector" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_detail_album"
@@ -57,6 +61,17 @@
         >
         <argument
             android:name="musicianId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_detail_collector"
+        android:name="com.example.vinilosmobile.ui.collector.CollectorDetailFragment"
+        android:label="@string/menu_collector_detail"
+        tools:layout="@layout/collector_detail_fragment"
+        >
+        <argument
+            android:name="collectorId"
             app:argType="integer" />
     </fragment>
 
