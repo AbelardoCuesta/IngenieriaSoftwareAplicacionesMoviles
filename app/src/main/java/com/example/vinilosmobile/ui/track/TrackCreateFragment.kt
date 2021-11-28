@@ -51,7 +51,7 @@ class TrackCreateFragment  : Fragment() {
 
         viewModel = ViewModelProvider(this, TrackCreateViewModel.Factory(activity.application)).get(TrackCreateViewModel::class.java)
         binding.saveTrack.setOnClickListener {
-            viewModel.createTrack(binding.name.text.toString(),binding.duration.text.toString(), 100)
+            viewModel.createTrack(binding.name.text.toString(),binding.duration.text.toString(), args.albumId)
         }
     }
 
