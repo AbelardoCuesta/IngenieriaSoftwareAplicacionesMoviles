@@ -1,9 +1,6 @@
 package com.example.vinilosmobile.ui.album
 
-import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,7 +44,9 @@ class AlbumDetailFragment : Fragment() {
         _binding = AlbumDetailFragmentBinding.inflate(inflater, container, false)
         _binding!!.lifecycleOwner = this
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.nav_create_track)
+            val args: AlbumDetailFragmentArgs by navArgs()
+            val action = AlbumDetailFragmentDirections.actionNavDetailAlbumToNavCreateTrack(args.albumId)
+            findNavController().navigate(action)
         }
         return binding.root
     }
