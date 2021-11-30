@@ -90,4 +90,12 @@
             app:argType="integer" />
     </fragment>
 
+    <fragment
+        android:id="@+id/nav_create_album"
+        android:name="com.example.vinilosmobile.ui.album.AlbumCreateFragment"
+        android:label="@string/menu_album_create"
+        tools:layout="@layout/fragment_create_album"
+        >
+    </fragment>
+
 </navigation>
