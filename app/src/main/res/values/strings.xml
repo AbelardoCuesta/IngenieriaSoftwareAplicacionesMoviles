@@ -11,6 +11,7 @@
     <string name="menu_album_detail">Detalles del album</string>
     <string name="menu_musician_detail">Detalles del músico</string>
     <string name="menu_collector_detail">Detalles del coleccionista</string>
+    <string name="menu_album_create">Crear album</string>
 
     <string name="collector_name_placeholder">Nombre del coleccionista</string>
     <string name="collector_email_placeholder">Correo del coleccionista</string>
@@ -30,7 +31,16 @@
     <string name="releaseDate">Fecha lanzamiento : </string>
     <string name="recordLabel">Compañia discografica : </string>
     <string name="birthDate">Fecha nacimiento : </string>
-
+    <!-- Strings related to login -->
+    <string name="prompt_name_album">Nombre</string>
+    <string name="prompt_cover_album">Caratula</string>
+    <string name="promp_description_album">Descripción</string>
+    <string name="prompt_fecha_album">Fecha de lanzamiento</string>
+    <string name="promp_genre_album">Genero</string>
+    <string name="promp_record_label_album">Casa disquera</string>
+    <string name="action_save_album">Guardar</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="action_create_album_short">Crear album</string>
     <string name="imageAlbum">Imagen del álbum </string>
     <string name="imageMusic">Imagen del musico </string>
     <string name="labelAlbum">Álbum </string>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundTint="#040303"
     tools:context=".ui.album.AlbumFragment">
 
     <TextView
@@ -25,5 +26,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/album_item" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="#636161"
+        app:rippleColor="@color/blue_gray"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </FrameLayout>
