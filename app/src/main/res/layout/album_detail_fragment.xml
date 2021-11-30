@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="album" type="com.example.vinilosmobile.models.Album"/>
@@ -19,12 +18,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="391dp"
-                android:layout_height="704dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="vertical">
 
 
@@ -32,15 +31,15 @@
                     android:id="@+id/avatar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:maxWidth="250dp"
-                    android:maxHeight="250dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:maxWidth="200dp"
+                    android:maxHeight="200dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
-                    android:contentDescription="Avatar"
+                    android:contentDescription="@{@string/imageAlbum + ' ' +album.name}"
                     android:gravity="center_vertical|center_horizontal" />
 
                 <LinearLayout
@@ -51,9 +50,13 @@
 
                     <TextView
                         android:id="@+id/first_line"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
                         android:ellipsize="marquee"
                         android:fontFamily="sans-serif"
                         android:gravity="center_vertical|center_horizontal"
@@ -73,15 +76,20 @@
 
                     <TextView
                         android:id="@+id/releaseDate"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
                         android:ellipsize="marquee"
                         android:fontFamily="sans-serif"
                         android:gravity="center_vertical|center_horizontal"
                         android:singleLine="true"
-                        android:text="@{@string/releaseDate + album.releaseDate}"
+                        android:text="@{@string/releaseDate +' '+ album.releaseDate}"
                         android:textColor="@color/color3"
-                        android:textSize="14sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -92,15 +100,20 @@
 
                     <TextView
                         android:id="@+id/genre"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
                         android:ellipsize="marquee"
                         android:fontFamily="sans-serif"
                         android:gravity="center_vertical|center_horizontal"
                         android:singleLine="true"
-                        android:text="@{@string/genero + album.genre}"
+                        android:text="@{@string/genero +' '+ album.genre}"
                         android:textColor="@color/color3"
-                        android:textSize="14sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -111,15 +124,20 @@
 
                     <TextView
                         android:id="@+id/recordLabel"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
                         android:ellipsize="marquee"
                         android:fontFamily="sans-serif"
                         android:gravity="center_vertical|center_horizontal"
                         android:singleLine="true"
                         android:text="@{@string/recordLabel + album.recordLabel}"
                         android:textColor="@color/color3"
-                        android:textSize="14sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -130,14 +148,19 @@
 
                     <TextView
                         android:id="@+id/second_line"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
                         android:ellipsize="marquee"
                         android:fontFamily="sans-serif"
                         android:singleLine="false"
                         android:text="@{album.description}"
                         android:textColor="@color/color3"
-                        android:textSize="14sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -145,4 +168,5 @@
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
