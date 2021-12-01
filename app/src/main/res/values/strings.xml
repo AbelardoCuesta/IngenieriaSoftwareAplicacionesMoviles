@@ -48,7 +48,8 @@
     <string name="labelCollector">Coleccionistas </string>
 
     <string name="btn_create_track">Crear track</string>
-    <string name="label_Track">Nuevo track</string>
+    <string name="label_Track">Nombre del track</string>
+    <string name="label_timePicker">Duración</string>
 
 
 </resources>

@@ -1,7 +1,6 @@
 package com.example.vinilosmobile.ui.track
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.vinilosmobile.databinding.TrackFragmentBinding
-import java.util.regex.Pattern
+import android.widget.TimePicker
+import com.example.vinilosmobile.ui.utils.TimePickerUtil
+import androidx.navigation.fragment.findNavController
+
 
 class TrackCreateFragment  : Fragment() {
     companion object {
@@ -49,15 +51,24 @@ class TrackCreateFragment  : Fragment() {
             "You can only access the viewModel after onActivityCreated()"
         }
         val args: TrackCreateFragmentArgs by navArgs()
+        val tpHourMin = binding.duration as TimePicker
+        tpHourMin.setIs24HourView(true)
+
 
         viewModel = ViewModelProvider(this, TrackCreateViewModel.Factory(activity.application)).get(TrackCreateViewModel::class.java)
         binding.saveTrack.setOnClickListener {
+
+           var durationValue = ( if (TimePickerUtil.getTimePickerHour(binding.duration)< 10) ("0"+TimePickerUtil.getTimePickerHour(binding.duration).toString()) else (TimePickerUtil.getTimePickerHour(binding.duration).toString()))+
+                    ":" +(if (TimePickerUtil.getTimePickerMinute(binding.duration)< 10) ("0"+TimePickerUtil.getTimePickerMinute(binding.duration).toString()) else (TimePickerUtil.getTimePickerMinute(binding.duration).toString()))
             if(validate()) {
                 viewModel.createTrack(
                     binding.name.text.toString(),
-                    binding.duration.text.toString(),
+                    durationValue,
                     args.albumId
                 )
+
+                val action = TrackCreateFragmentDirections.actionNavCreateTrackToNavAlbumDetail(args.albumId)
+                findNavController().navigate(action)
             }
         }
     }
@@ -75,35 +86,21 @@ class TrackCreateFragment  : Fragment() {
         }
     }
 
-    private fun validateDuration() : Boolean {
-        //Recuperamos el contenido del textInputLayout
-        val duration = binding.duration.text.toString()
-
-        // Patrón con expresiones regulares
-        val passwordRegex = Pattern.compile(
-            "^" +
-                    "([01]?[0-9]|2[0-3]):[0-5][0-9]"
-        )
-
-        return if (duration.isEmpty()){
-            binding.duration.error = "Debe ingresar una duración"
+    private fun validateDuration(): Boolean {
+        return if (TimePickerUtil.getTimePickerMinute(binding.duration) == 0 && TimePickerUtil.getTimePickerHour(binding.duration) == 0 ) {
+            Toast.makeText(activity, "La duración debe ser diferente a 00:00!!", Toast.LENGTH_SHORT).show()
             false
-        }else if (!passwordRegex.matcher(duration).matches()){
-            binding.duration.error = "La duracion no cumple con el formato 00:00"
-            false
-        }else{
-            binding.duration.error = null
+        } else {
             true
         }
     }
 
     private fun validate() :Boolean {
-        val result = arrayOf(validateDuration(), validateName())
+        val result = arrayOf(validateName(), validateDuration())
 
         if (false in result){
             return false
         }
-
         Toast.makeText(activity, "Track Creado", Toast.LENGTH_SHORT).show()
         return true
     }
