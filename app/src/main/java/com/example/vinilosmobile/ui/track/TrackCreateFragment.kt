@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.vinilosmobile.databinding.TrackFragmentBinding
+import java.util.regex.Pattern
 
 class TrackCreateFragment  : Fragment() {
     companion object {
@@ -51,8 +52,60 @@ class TrackCreateFragment  : Fragment() {
 
         viewModel = ViewModelProvider(this, TrackCreateViewModel.Factory(activity.application)).get(TrackCreateViewModel::class.java)
         binding.saveTrack.setOnClickListener {
-            viewModel.createTrack(binding.name.text.toString(),binding.duration.text.toString(), args.albumId)
+            if(validate()) {
+                viewModel.createTrack(
+                    binding.name.text.toString(),
+                    binding.duration.text.toString(),
+                    args.albumId
+                )
+            }
         }
+    }
+
+    private fun validateName(): Boolean {
+        return if (binding.name.text.toString().isEmpty() ) {
+            binding.name.error="Debe ingresar el nombre"
+            false
+        } else if (binding.name.text.length >= 50 ) {
+            binding.name.error="El nombre no debe superar los 50 caracteres"
+            false
+        } else {
+            binding.name.error=null
+            true
+        }
+    }
+
+    private fun validateDuration() : Boolean {
+        //Recuperamos el contenido del textInputLayout
+        val duration = binding.duration.text.toString()
+
+        // Patrón con expresiones regulares
+        val passwordRegex = Pattern.compile(
+            "^" +
+                    "([01]?[0-9]|2[0-3]):[0-5][0-9]"
+        )
+
+        return if (duration.isEmpty()){
+            binding.duration.error = "Debe ingresar una duración"
+            false
+        }else if (!passwordRegex.matcher(duration).matches()){
+            binding.duration.error = "La duracion no cumple con el formato 00:00"
+            false
+        }else{
+            binding.duration.error = null
+            true
+        }
+    }
+
+    private fun validate() :Boolean {
+        val result = arrayOf(validateDuration(), validateName())
+
+        if (false in result){
+            return false
+        }
+
+        Toast.makeText(activity, "Track Creado", Toast.LENGTH_SHORT).show()
+        return true
     }
 
 }
