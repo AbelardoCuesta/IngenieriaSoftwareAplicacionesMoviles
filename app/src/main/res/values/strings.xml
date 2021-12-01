@@ -29,7 +29,7 @@
 
     <string name="genero">Genero : </string>
     <string name="releaseDate">Fecha lanzamiento : </string>
-    <string name="recordLabel">Compañia discografica : </string>
+    <string name="recordLabel">Casa disquera : </string>
     <string name="birthDate">Fecha nacimiento : </string>
     <!-- Strings related to login -->
     <string name="prompt_name_album">Nombre</string>

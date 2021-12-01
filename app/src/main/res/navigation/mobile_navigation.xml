@@ -96,6 +96,9 @@
         android:label="@string/menu_album_create"
         tools:layout="@layout/fragment_create_album"
         >
+        <action
+            android:id="@+id/action_nav_create_album_to_nav_albums"
+            app:destination="@id/nav_albums" />
     </fragment>
 
 </navigation>

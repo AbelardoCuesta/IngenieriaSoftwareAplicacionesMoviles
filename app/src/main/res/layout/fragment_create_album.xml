@@ -35,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_name_album"
                 android:inputType="text"
-                android:selectAllOnFocus="true" />
+                android:selectAllOnFocus="true"
+                app:errorEnabled="true"/>
 
             <TextView
                 android:id="@+id/labelDescription"
@@ -53,7 +54,8 @@
                 android:imeActionLabel="@string/action_create_album_short"
                 android:imeOptions="actionDone"
                 android:inputType="textMultiLine"
-                android:selectAllOnFocus="true"/>
+                android:selectAllOnFocus="true"
+                app:errorEnabled="true"/>
 
             <TextView
                 android:id="@+id/labelDate"
@@ -70,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_fecha_album"
                 android:imeOptions="actionDone"
-                android:selectAllOnFocus="true"/>
+                android:selectAllOnFocus="true"
+                app:errorEnabled="true"/>
 
 
             <TextView
@@ -88,7 +91,8 @@
                 android:hint="@string/promp_genre_album"
                 android:imeActionLabel="@string/action_create_album_short"
                 android:imeOptions="actionDone"
-                android:selectAllOnFocus="true"/>
+                android:selectAllOnFocus="true"
+                app:errorEnabled="true"/>
 
             <TextView
                 android:id="@+id/coverLabel"
@@ -122,7 +126,8 @@
                 android:hint="@string/promp_record_label_album"
                 android:imeActionLabel="@string/action_create_album_short"
                 android:imeOptions="actionDone"
-                android:selectAllOnFocus="true"/>
+                android:selectAllOnFocus="true"
+                app:errorEnabled="true"/>
 
             <Button
                 android:id="@+id/saveAlbum"
