@@ -28,20 +28,20 @@
             android:inputType="text"
             app:errorEnabled="true"/>
 
-        <EditText
+        <TimePicker
             android:id="@+id/duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="text"
-            app:errorEnabled="true"/>
+            android:timePickerMode="spinner"
+
+            />
 
         <Button
             android:id="@+id/saveTrack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_create_track" />
+
 
     </LinearLayout>
 </layout>

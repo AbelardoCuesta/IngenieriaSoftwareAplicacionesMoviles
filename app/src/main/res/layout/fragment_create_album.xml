@@ -75,7 +75,6 @@
                 android:selectAllOnFocus="true"
                 app:errorEnabled="true"/>
 
-
             <TextView
                 android:id="@+id/genreLabel"
                 android:layout_width="match_parent"
@@ -109,7 +108,8 @@
                 android:hint="@string/prompt_cover_album"
                 android:imeActionLabel="@string/action_create_album_short"
                 android:imeOptions="actionDone"
-                android:selectAllOnFocus="true"/>
+                android:inputType="date"
+                android:selectAllOnFocus="true" />
 
             <TextView
                 android:id="@+id/recordLabel"
