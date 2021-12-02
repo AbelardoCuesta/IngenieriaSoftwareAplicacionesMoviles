@@ -96,7 +96,7 @@
                         android:singleLine="false"
                         android:text="@{@string/email + collector.email}"
                         android:textColor="@color/color3"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </LinearLayout>
