@@ -92,13 +92,13 @@ class AlbumCreateFragment : Fragment() {
         val cover = binding.cover.text.toString()
 
         return if (binding.cover.text.toString().isEmpty()) {
-            binding.inputCover.error = "Debe ingresar la caratula"
+            binding.inputCover.error = "Debe ingresar la carátula"
             false
         } else if (binding.cover.text.length >= 500) {
-            binding.inputCover.error = "La caratula"
+            binding.inputCover.error = "La carátula no debe superar los 500 caracteres"
             false
         } else if (!passwordRegex.matcher(cover).matches()) {
-            binding.inputCover.error = "La caratula no cumple con el formato URL"
+            binding.inputCover.error = "La carátula no cumple con el formato URL"
             false
         } else {
             binding.inputCover.error = null
@@ -108,10 +108,10 @@ class AlbumCreateFragment : Fragment() {
 
     private fun validateGenre(): Boolean {
         return if (binding.genre.text.toString().isEmpty()) {
-            binding.inputGenre.error = "Debe ingresar el genero"
+            binding.inputGenre.error = "Debe ingresar el género"
             false
         } else if (binding.genre.text.length >= 50) {
-            binding.inputGenre.error = "El genero no debe superar los 50 caracteres"
+            binding.inputGenre.error = "El género no debe superar los 50 caracteres"
             false
         } else {
             binding.inputGenre.error = null
