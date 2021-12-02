@@ -74,13 +74,13 @@ class AlbumCreateFragment : Fragment() {
 
     private fun validateName(): Boolean {
         return if (binding.nombre.text.toString().isEmpty()) {
-            binding.nombre.error = "Debe ingresar el nombre"
+            binding.inputName.error = "Debe ingresar el nombre"
             false
         } else if (binding.nombre.text.length >= 50) {
-            binding.nombre.error = "El nombre no debe superar los 50 caracteres"
+            binding.inputName.error = "El nombre no debe superar los 50 caracteres"
             false
         } else {
-            binding.nombre.error = null
+            binding.inputName.error = null
             true
         }
     }
@@ -92,55 +92,55 @@ class AlbumCreateFragment : Fragment() {
         val cover = binding.cover.text.toString()
 
         return if (binding.cover.text.toString().isEmpty()) {
-            binding.cover.error = "Debe ingresar la caratula"
+            binding.inputCover.error = "Debe ingresar la caratula"
             false
         } else if (binding.cover.text.length >= 500) {
-            binding.cover.error = "La caratula"
+            binding.inputCover.error = "La caratula"
             false
         } else if (!passwordRegex.matcher(cover).matches()) {
-            binding.cover.error = "La caratula no cumple con el formato URL"
+            binding.inputCover.error = "La caratula no cumple con el formato URL"
             false
         } else {
-            binding.cover.error = null
+            binding.inputCover.error = null
             true
         }
     }
 
     private fun validateGenre(): Boolean {
         return if (binding.genre.text.toString().isEmpty()) {
-            binding.genre.error = "Debe ingresar el genero"
+            binding.inputGenre.error = "Debe ingresar el genero"
             false
         } else if (binding.genre.text.length >= 50) {
-            binding.genre.error = "El genero no debe superar los 50 caracteres"
+            binding.inputGenre.error = "El genero no debe superar los 50 caracteres"
             false
         } else {
-            binding.genre.error = null
+            binding.inputGenre.error = null
             true
         }
     }
 
     private fun validateRecord(): Boolean {
         return if (binding.record.text.toString().isEmpty()) {
-            binding.record.error = "Debe ingresar la casa disquera"
+            binding.inputRecord.error = "Debe ingresar la casa disquera"
             false
         } else if (binding.record.text.length >= 50) {
-            binding.record.error = "La casa disquera no debe superar los 50 caracteres"
+            binding.inputRecord.error = "La casa disquera no debe superar los 50 caracteres"
             false
         } else {
-            binding.record.error = null
+            binding.inputRecord.error = null
             true
         }
     }
 
     private fun validateDescription(): Boolean {
         return if (binding.description.text.toString().isEmpty()) {
-            binding.description.error = "Debe ingresar la descripción"
+            binding.inputDescription.error = "Debe ingresar la descripción"
             false
         } else if (binding.description.text.length >= 200) {
-            binding.description.error = "La descripción no debe superar los 50 caracteres"
+            binding.inputDescription.error = "La descripción no debe superar los 50 caracteres"
             false
         } else {
-            binding.description.error = null
+            binding.inputDescription.error = null
             true
         }
     }
@@ -154,13 +154,13 @@ class AlbumCreateFragment : Fragment() {
             Pattern.compile("^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])\$")
 
         return if (createDate.isEmpty()) {
-            binding.createDate.error = "Debe ingresar una fecha de creación"
+            binding.inputCreateDate.error = "Debe ingresar una fecha de creación"
             false
         } else if (!passwordRegex.matcher(createDate).matches()) {
-            binding.createDate.error = "La fecha de creación no cumple con el formato 1900-00-00"
+            binding.inputCreateDate.error = "YYYY-MM-DD"
             false
         } else {
-            binding.createDate.error = null
+            binding.inputCreateDate.error = null
             true
         }
     }
@@ -168,11 +168,11 @@ class AlbumCreateFragment : Fragment() {
     private fun validate(): Boolean {
         val result = arrayOf(
             validateName(),
-            validateCover(),
-            validateGenre(),
-            validateRecord(),
             validateDescription(),
-            validateFecha()
+            validateFecha(),
+            validateGenre(),
+            validateCover(),
+            validateRecord(),
         )
 
         if (false in result) {

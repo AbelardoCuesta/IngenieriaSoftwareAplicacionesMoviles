@@ -5,11 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="album"
             type="com.example.vinilosmobile.models.Album" />
     </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,9 +29,23 @@
                 android:id="@+id/labelNameAlbum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif"
+                android:singleLine="true"
                 android:text="@string/prompt_name_album"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="49dp" />
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:errorEnabled="true">
 
             <EditText
                 android:id="@+id/nombre"
@@ -35,17 +53,33 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_name_album"
                 android:inputType="text"
+                android:fontFamily="sans-serif"
                 android:selectAllOnFocus="true"
                 app:errorEnabled="true"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/labelDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif"
+                android:singleLine="true"
                 android:text="@string/promp_description_album"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="135dp" />
+                android:textStyle="bold" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:errorEnabled="true">
             <EditText
                 android:id="@+id/description"
                 android:layout_width="match_parent"
@@ -56,33 +90,61 @@
                 android:inputType="textMultiLine"
                 android:selectAllOnFocus="true"
                 app:errorEnabled="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/labelDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif"
+                android:singleLine="true"
                 android:text="@string/prompt_fecha_album"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="135dp" />
+                android:textStyle="bold"/>
 
-
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_createDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:errorEnabled="true">
             <EditText
                 android:id="@+id/createDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_fecha_album"
+                android:inputType="date"
                 android:imeOptions="actionDone"
                 android:selectAllOnFocus="true"
                 app:errorEnabled="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/genreLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif"
+                android:singleLine="true"
                 android:text="@string/promp_genre_album"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="135dp" />
+                android:textStyle="bold" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:errorEnabled="true">
             <EditText
                 android:id="@+id/genre"
                 android:layout_width="match_parent"
@@ -92,15 +154,30 @@
                 android:imeOptions="actionDone"
                 android:selectAllOnFocus="true"
                 app:errorEnabled="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/coverLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif"
+                android:singleLine="true"
                 android:text="@string/prompt_cover_album"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="135dp" />
+                android:textStyle="bold" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_cover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:errorEnabled="true">
             <EditText
                 android:id="@+id/cover"
                 android:layout_width="match_parent"
@@ -108,17 +185,31 @@
                 android:hint="@string/prompt_cover_album"
                 android:imeActionLabel="@string/action_create_album_short"
                 android:imeOptions="actionDone"
-                android:inputType="date"
                 android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/recordLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif"
+                android:singleLine="true"
                 android:text="@string/promp_record_label_album"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="135dp" />
+                android:textStyle="bold" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:errorEnabled="true">
             <EditText
                 android:id="@+id/record"
                 android:layout_width="match_parent"
@@ -128,6 +219,7 @@
                 android:imeOptions="actionDone"
                 android:selectAllOnFocus="true"
                 app:errorEnabled="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/saveAlbum"
@@ -138,9 +230,8 @@
                 android:gravity="end"
                 android:text="@string/action_save_album" />
 
-
         </LinearLayout>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

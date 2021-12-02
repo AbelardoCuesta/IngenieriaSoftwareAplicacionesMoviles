@@ -7,6 +7,10 @@
         <variable name="track" type="com.example.vinilosmobile.models.Track" />
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,35 +21,74 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_Track" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="marquee"
+            android:fontFamily="sans-serif"
+            android:singleLine="true"
+            android:text="@string/label_Track"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/name"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/prompt_name_track"
-            android:ems="10"
-            android:inputType="text"
-            app:errorEnabled="true" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_name_track"
+                android:fontFamily="sans-serif"
+                android:inputType="text"
+                app:errorEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/duracion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_timePicker" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="marquee"
+            android:fontFamily="sans-serif"
+            android:singleLine="true"
+            android:text="@string/label_timePicker"
+            android:textStyle="bold"/>
 
-        <TimePicker
-            android:id="@+id/duration"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:timePickerMode="spinner"
-            android:contentDescription="Seleccione la duración del track"
-            />
+            app:errorEnabled="true">
+
+            <TimePicker
+                android:id="@+id/duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                android:contentDescription="Seleccione la duración del track" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/saveTrack"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:enabled="true"
+            android:gravity="end"
             android:text="@string/btn_create_track" />
     </LinearLayout>
+    </ScrollView>
 </layout>
