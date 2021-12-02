@@ -27,7 +27,7 @@
     <string name="title_musicians">Músicos</string>
     <string name="avatar_musician">Avatar</string>
 
-    <string name="genero">Genero : </string>
+    <string name="genero">Género : </string>
     <string name="releaseDate">Fecha lanzamiento : </string>
     <string name="recordLabel">Casa disquera : </string>
     <string name="birthDate">Fecha nacimiento : </string>
@@ -36,7 +36,7 @@
     <string name="prompt_cover_album">Caratula</string>
     <string name="promp_description_album">Descripción</string>
     <string name="prompt_fecha_album">Fecha de lanzamiento</string>
-    <string name="promp_genre_album">Genero</string>
+    <string name="promp_genre_album">Género</string>
     <string name="promp_record_label_album">Casa disquera</string>
     <string name="action_save_album">Guardar</string>
     <string name="welcome">"Welcome!"</string>
@@ -49,7 +49,12 @@
 
     <string name="btn_create_track">Crear track</string>
     <string name="label_Track">Nombre del track</string>
-    <string name="label_timePicker">Duración</string>
+    <string name="label_timePicker">Duración del track</string>
 
-
+    <string name="telephone">Teléfono : </string>
+    <string name="email">Email : </string>
+    <string name="botonCrearAlbum">Crear un álbum</string>
+    <string name="botonCrearTrack">Crear un track</string>
+    <string name="labelDuracion">Seleecione la duración del track</string>
+    <string name="prompt_name_track">Nombre</string>
 </resources>
