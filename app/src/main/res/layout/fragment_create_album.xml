@@ -108,7 +108,6 @@
                 android:hint="@string/prompt_cover_album"
                 android:imeActionLabel="@string/action_create_album_short"
                 android:imeOptions="actionDone"
-                android:inputType="date"
                 android:selectAllOnFocus="true" />
 
             <TextView

@@ -1,8 +1,8 @@
 package com.example.vinilosmobile.ui.collector
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
+import com.example.vinilosmobile.database.dao.VinylRoomDatabase
 import com.example.vinilosmobile.models.Collector
 import com.example.vinilosmobile.repositories.CollectorRepository
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 
 class CollectorViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val collectorsRepository = CollectorRepository(application)
+    private val collectorsRepository = CollectorRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).collectorsDao())
     private val _collectors = MutableLiveData<List<Collector>>()
 
     val collectors: LiveData<List<Collector>>
