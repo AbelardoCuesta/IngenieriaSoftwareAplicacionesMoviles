@@ -3,10 +3,12 @@ package com.example.vinilosmobile
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -16,20 +18,21 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
+import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class Prueba {
+class CrearAlbumTest {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun prueba() {
+    fun crearAlbumTest() {
         val appCompatImageButton = onView(
             allOf(
                 withContentDescription("Open navigation drawer"),
@@ -66,16 +69,43 @@ class Prueba {
         )
         navigationMenuItemView.perform(click())
 
-        val recyclerView = onView(
+        val floatingActionButton = onView(
             allOf(
-                withId(R.id.albumsRv),
+                withId(R.id.fab), withContentDescription("Crear un álbum"),
                 childAtPosition(
-                    withClassName(`is`("android.widget.FrameLayout")),
-                    2
+                    childAtPosition(
+                        withId(R.id.nav_host_fragment_content_main),
+                        0
+                    ),
+                    3
+                ),
+                isDisplayed()
+            )
+        )
+        floatingActionButton.perform(click())
+
+        val materialButton = onView(
+            allOf(
+                withId(R.id.saveAlbum), withText("Guardar"),
+                childAtPosition(
+                    childAtPosition(
+                        withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
+                        0
+                    ),
+                    12
                 )
             )
         )
-        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
+        materialButton.perform(scrollTo(), click())
+
+        val textView = onView(
+            allOf(
+                withId(R.id.textinput_error), withText("Debe ingresar la casa disquera"),
+                withParent(withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout::class.java))),
+                isDisplayed()
+            )
+        )
+        textView.check(matches(withText("Debe ingresar la casa disquera")))
     }
 
     private fun childAtPosition(
