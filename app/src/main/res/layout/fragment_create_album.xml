@@ -195,6 +195,7 @@
                 android:autofillHints="" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <TextView
                 android:id="@+id/recordLabel"
                 android:layout_width="match_parent"
