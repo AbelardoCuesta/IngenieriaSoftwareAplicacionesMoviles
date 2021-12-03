@@ -67,6 +67,8 @@ class TrackCreateFragment  : Fragment() {
                     args.albumId
                 )
 
+                Toast.makeText(activity, "Track Creado", Toast.LENGTH_SHORT).show()
+
                 val action = TrackCreateFragmentDirections.actionNavCreateTrackToNavAlbumDetail(args.albumId)
                 findNavController().navigate(action)
             }
@@ -74,23 +76,25 @@ class TrackCreateFragment  : Fragment() {
     }
 
     private fun validateName(): Boolean {
+
         return if (binding.name.text.toString().isEmpty() ) {
-            binding.name.error="Debe ingresar el nombre"
+            binding.inputName.error = "Debe ingresar el nombre"
             false
         } else if (binding.name.text.length >= 50 ) {
-            binding.name.error="El nombre no debe superar los 50 caracteres"
+            binding.inputName.error ="El nombre no debe superar los 50 caracteres"
             false
         } else {
-            binding.name.error=null
+            binding.inputName.error=null
             true
         }
     }
 
     private fun validateDuration(): Boolean {
         return if (TimePickerUtil.getTimePickerMinute(binding.duration) == 0 && TimePickerUtil.getTimePickerHour(binding.duration) == 0 ) {
-            Toast.makeText(activity, "La duración debe ser diferente a 00:00!!", Toast.LENGTH_SHORT).show()
+            binding.inputTime.error = "La duración debe ser diferente a 00:00!!"
             false
         } else {
+            binding.inputTime.error= null
             true
         }
     }
@@ -101,7 +105,7 @@ class TrackCreateFragment  : Fragment() {
         if (false in result){
             return false
         }
-        Toast.makeText(activity, "Track Creado", Toast.LENGTH_SHORT).show()
+
         return true
     }
 

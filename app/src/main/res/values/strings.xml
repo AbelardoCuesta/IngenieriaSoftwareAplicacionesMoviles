@@ -2,7 +2,6 @@
     <string name="app_name">VinilosMobile</string>
     <string name="nav_header_title">Vinilos</string>
     <string name="nav_header_desc">Icono de la app vinilos</string>
-    <string name="action_settings">Settings</string>
 
     <string name="menu_home">Inicio</string>
     <string name="menu_albums">Albumes</string>
@@ -13,21 +12,12 @@
     <string name="menu_collector_detail">Detalles del coleccionista</string>
     <string name="menu_album_create">Crear album</string>
 
-    <string name="collector_name_placeholder">Nombre del coleccionista</string>
-    <string name="collector_email_placeholder">Correo del coleccionista</string>
-    <string name="collector_phone_placeholder">Número telefónico</string>
-
-    <string name="comment_description_placeholder">Descripción del comentario</string>
-    <string name="album_name_placeholder">Nombre del álbum</string>
-    <string name="album_description_placeholder">Descripción del álbum</string>
-    <string name="txt_no_comments">No hay comentarios para este álbum</string>
     <string name="title_albums">Álbums</string>
     <string name="title_collectors">Coleccionistas</string>
     <string name="title_comments">Comentarios del álbum</string>
     <string name="title_musicians">Músicos</string>
-    <string name="avatar_musician">Avatar</string>
 
-    <string name="genero">Genero : </string>
+    <string name="genero">Género : </string>
     <string name="releaseDate">Fecha lanzamiento : </string>
     <string name="recordLabel">Casa disquera : </string>
     <string name="birthDate">Fecha nacimiento : </string>
@@ -36,10 +26,9 @@
     <string name="prompt_cover_album">Caratula</string>
     <string name="promp_description_album">Descripción</string>
     <string name="prompt_fecha_album">Fecha de lanzamiento</string>
-    <string name="promp_genre_album">Genero</string>
+    <string name="promp_genre_album">Género</string>
     <string name="promp_record_label_album">Casa disquera</string>
     <string name="action_save_album">Guardar</string>
-    <string name="welcome">"Welcome!"</string>
     <string name="action_create_album_short">Crear album</string>
     <string name="imageAlbum">Imagen del álbum </string>
     <string name="imageMusic">Imagen del musico </string>
@@ -49,7 +38,12 @@
 
     <string name="btn_create_track">Crear track</string>
     <string name="label_Track">Nombre del track</string>
-    <string name="label_timePicker">Duración</string>
+    <string name="label_timePicker">Duración del track</string>
 
-
+    <string name="telephone">Teléfono : </string>
+    <string name="email">Email : </string>
+    <string name="botonCrearAlbum">Crear un álbum</string>
+    <string name="botonCrearTrack">Crear un track</string>
+    <string name="prompt_name_track">Nombre</string>
+    <string name="contentDuracion">Seleccione la duración del track</string>
 </resources>
