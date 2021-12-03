@@ -7,8 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @Entity(tableName = "collectors_table")
 data class Collector(
-    @PrimaryKey
-    val collectorId: Int,
+    @PrimaryKey val collectorId: Int,
     val name: String,
     val telephone: String,
     val email: String

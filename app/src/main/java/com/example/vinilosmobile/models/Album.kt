@@ -6,10 +6,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @Entity(tableName = "album_table")
-
 data class Album(
-    @PrimaryKey
-    val albumId: Int,
+    @PrimaryKey val albumId: Int,
     val name: String,
     val cover: String,
     val releaseDate: String,
