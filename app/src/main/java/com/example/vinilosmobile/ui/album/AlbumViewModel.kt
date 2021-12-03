@@ -3,6 +3,7 @@ package com.example.vinilosmobile.ui.album
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.vinilosmobile.database.dao.VinylRoomDatabase
 import com.example.vinilosmobile.models.Album
 import com.example.vinilosmobile.repositories.AlbumRepository
 import com.example.vinilosmobile.repositories.AlbumDetailRepository
@@ -12,7 +13,8 @@ import kotlinx.coroutines.withContext
 
 
 class AlbumViewModel(application: Application) :  AndroidViewModel(application) {
-    private val albumsRepository = AlbumRepository(application)
+    private val albumsRepository = AlbumRepository(application,
+        VinylRoomDatabase.getDatabase(application.applicationContext).albumsDao())
     private val _albums = MutableLiveData<List<Album>>()
     private val albumDetailRepository=AlbumDetailRepository(application)
     private val _album = MutableLiveData<Album>()
