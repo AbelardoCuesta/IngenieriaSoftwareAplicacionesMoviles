@@ -34,8 +34,7 @@ class MusicianDetailViewModel(application: Application, musicianId: Int) :  Andr
         try {
             viewModelScope.launch (Dispatchers.Default){
                 withContext(Dispatchers.IO){
-                    var data = musicianDetailRepository.refreshData(id)
-                    _musician.postValue(data)
+                    _musician.postValue(musicianDetailRepository.refreshData(id))
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)

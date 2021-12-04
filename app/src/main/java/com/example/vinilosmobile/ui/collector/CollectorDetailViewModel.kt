@@ -34,8 +34,7 @@ class CollectorDetailViewModel(application: Application, collectorId: Int) :  An
         try {
             viewModelScope.launch (Dispatchers.Default){
                 withContext(Dispatchers.IO){
-                    var data = collectorDetailRepository.refreshData(id)
-                    _collector.postValue(data)
+                    _collector.postValue(collectorDetailRepository.refreshData(id))
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)
