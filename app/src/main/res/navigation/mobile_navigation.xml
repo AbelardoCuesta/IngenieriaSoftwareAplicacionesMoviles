@@ -35,7 +35,11 @@
         android:id="@+id/nav_collectors"
         android:name="com.example.vinilosmobile.ui.collector.CollectorFragment"
         android:label="@string/menu_collectors"
-        tools:layout="@layout/fragment_collector" />
+        tools:layout="@layout/fragment_collector" >
+        <action
+            android:id="@+id/action_nav_collectors_to_nav_detail_collector"
+            app:destination="@id/nav_detail_collector" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_detail_album"
@@ -46,6 +50,9 @@
         <argument
             android:name="albumId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_nav_detail_album_to_nav_create_track"
+            app:destination="@id/nav_create_track" />
     </fragment>
 
 
@@ -58,6 +65,43 @@
         <argument
             android:name="musicianId"
             app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_detail_collector"
+        android:name="com.example.vinilosmobile.ui.collector.CollectorDetailFragment"
+        android:label="@string/menu_collector_detail"
+        tools:layout="@layout/collector_detail_fragment"
+        >
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_create_track"
+        android:name="com.example.vinilosmobile.ui.track.TrackCreateFragment"
+        android:label="@string/btn_create_track"
+        tools:layout="@layout/track_fragment"
+        >
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_nav_create_track_to_nav_album_detail"
+            app:destination="@id/nav_detail_album" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_create_album"
+        android:name="com.example.vinilosmobile.ui.album.AlbumCreateFragment"
+        android:label="@string/menu_album_create"
+        tools:layout="@layout/fragment_create_album"
+        >
+        <action
+            android:id="@+id/action_nav_create_album_to_nav_albums"
+            app:destination="@id/nav_albums" />
     </fragment>
 
 </navigation>

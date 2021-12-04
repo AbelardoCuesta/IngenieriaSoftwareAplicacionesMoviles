@@ -36,8 +36,15 @@
             android:text="@{collector.name}"
             android:textColor="@color/color1"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:contentDescription="@{@string/labelCollector + ' ' +collector.name}" />
       </LinearLayout>
+
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_alignParentBottom="true"
+          android:background="@color/color1" />
 
     </RelativeLayout>
   </androidx.constraintlayout.widget.ConstraintLayout>

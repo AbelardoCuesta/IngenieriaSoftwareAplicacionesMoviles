@@ -151,6 +151,36 @@ class NetworkServiceAdapter constructor(context: Context) {
 
     }
 
+    suspend fun getCollector(collectorId: Int)= suspendCoroutine<Collector>{ cont->
+        requestQueue.add(getRequest("collectors/$collectorId",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                val collector=Collector(
+                    collectorId = resp.getInt("id"),
+                    name = resp.getString("name"),
+                    telephone = resp.getString("telephone"),
+                    email = resp.getString("email")
+                )
+                Log.d("tagb", collector.toString())
+
+                cont.resume(collector)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }))
+    }
+
+    fun postTrack(body: JSONObject, albumId: Int, onComplete:(resp:JSONObject)->Unit , onError: (error: VolleyError)->Unit){
+        requestQueue.add(postRequest("albums/$albumId/tracks",
+            body,
+            Response.Listener<JSONObject> { response ->
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
     private fun getRequest(
         path: String,
         responseListener: Response.Listener<String>,
@@ -187,5 +217,15 @@ class NetworkServiceAdapter constructor(context: Context) {
             responseListener,
             errorListener
         )
+    }
+    fun postAlbum(body: JSONObject, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
+        requestQueue.add(postRequest("albums",
+            body,
+            Response.Listener<JSONObject> { response ->
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
     }
 }
