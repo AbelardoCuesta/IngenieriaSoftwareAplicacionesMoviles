@@ -53,6 +53,24 @@ class CrearTrack {
         )
         appCompatImageButton.perform(click())
 
+        val appCompatImageButton2 = onView(
+            allOf(
+                withContentDescription("Open navigation drawer"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.toolbar),
+                        childAtPosition(
+                            withClassName(`is`("com.google.android.material.appbar.AppBarLayout")),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatImageButton2.perform(click())
+
         val navigationMenuItemView = onView(
             allOf(
                 withId(R.id.nav_albums),
@@ -89,7 +107,7 @@ class CrearTrack {
                 withId(R.id.fab), withContentDescription("Crear un track"),
                 childAtPosition(
                     childAtPosition(
-                        withClassName(`is`("android.widget.RelativeLayout")),
+                        withId(R.id.nav_host_fragment_content_main),
                         0
                     ),
                     6
